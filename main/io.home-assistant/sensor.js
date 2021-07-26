@@ -149,6 +149,10 @@ module.exports = class HomeAssistantSensor extends HomeAssistantDevice {
                     on: 'low',
                     off: 'normal'
                 },
+                battery_charging: {
+                    on: 'charging',
+                    off: 'not_charging'
+                },
                 carbon_monoxide: {
                     on: 'detecting',
                     off: 'not_detecting'
@@ -263,6 +267,12 @@ module.exports = class HomeAssistantSensor extends HomeAssistantDevice {
         return this.get_state();
     }
     subscribe_motion() {
+        return this.subscribe_state();
+    }
+    async get_charge() {
+        return this.get_state();
+    }
+    subscribe_charge() {
         return this.subscribe_state();
     }
     async get_occupancy() {
