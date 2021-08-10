@@ -1,0 +1,38 @@
+abstract class @org.thingpedia.iot.airquality
+#_[thingpedia_name="Air Quality Sensor"]
+#_[thingpedia_description="Interface for Air Quality Sensor."]
+#_[description="Interface for Air Quality Sensor."]
+#[license="BSD-3-Clause"]
+#[license_gplcompatible=true]
+#[subcategory="home"]
+{
+  monitorable query state(out gas_state : boolean,
+                          out gas_value : number,
+                          out PM01_state : boolean,
+                          out PM01_value : number,
+                          out PM25_state : boolean,
+                          out PM25_value : number,
+                          out PM10_state : boolean,
+                          out PM10_value : number,
+                          out AQI_state : boolean,
+                          out AQI_value : number,
+                          out O3_state : boolean,
+                          out O3_value : number,
+                          out CO_state : boolean,
+                          out CO_value : number,
+                          out CO2_state : boolean,
+                          out CO2_value : number,
+                          out SO2_state : boolean,
+                          out SO2_value : number,
+                          out N2O_state : boolean,
+                          out N2O_value : number,
+                          out NO_state : boolean,
+                          out NO_value : number,
+                          out NO2_state : boolean,
+                          out NO2_value : number
+                          )
+  #_[canonical="air quality sensor state"]
+  #_[confirmation="the state of $__device"]
+  #[confirm=false]
+  #_[result=["the sensor is detecting ${state:enum}"]];
+}
