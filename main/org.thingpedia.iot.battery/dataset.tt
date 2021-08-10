@@ -135,6 +135,7 @@ dataset @org.thingpedia.iot.battery language "en" {
 
     program (p_name :String)  := @org.thingpedia.iot.battery(name=p_name).state()
 <<<<<<< HEAD
+<<<<<<< HEAD
     #_[utterances=["is my ${p_name:const} battery low?",
                    "check if my ${p_name:const} battery is low",
                    "check if the ${p_name:const} battery too low",
@@ -206,6 +207,8 @@ dataset @org.thingpedia.iot.battery language "en" {
                    "if my ${p_name:const} battery changes to ${p_state}"]]
 
 =======
+=======
+>>>>>>> 13be02b9 (base update - battery device)
     #_[utterances=["is my ${p_name:const} battery low?",
                    "check if my ${p_name:const} battery is low",
                    "check if the ${p_name:const} battery is too low",
@@ -256,6 +259,7 @@ dataset @org.thingpedia.iot.battery language "en" {
     stream (p_name :String, p_charge :Number)  := monitor (@org.thingpedia.iot.battery(name=p_name).state()), value <= p_charge
     #_[utterances=["when the ${p_name:const} battery sensor is lower than ${p_charge} percent",
                    "if the ${p_name:const} battery sensor level goes below ${p_charge} percent"]]
+    #[id=100023]
     #[name="MonitorStateByValueLessThan1"];
 
     stream (p_name :String, p_state :Enum(low,normal))  := monitor (@org.thingpedia.iot.battery(name=p_name).state()), state == p_state
@@ -264,7 +268,7 @@ dataset @org.thingpedia.iot.battery language "en" {
                    "if the ${p_name:const} battery is ${p_state}",
                    "when my ${p_name:const} battery turns ${p_state}",
                    "if my ${p_name:const} battery changes to ${p_state}"]]
->>>>>>> Stashed changes
+    #[id=100024]
     #[name="MonitorStateByState1"];
 
     program (p_name :String)  := @org.thingpedia.iot.battery(name=p_name).charge()
@@ -277,6 +281,7 @@ dataset @org.thingpedia.iot.battery language "en" {
                    "in which status is the ${p_name:const} charging process?",
                    "how much ${p_name:const} battery do I have left?",
                    "what is my ${p_name:const} battery charge status?"]]
+    #[id=100025]
     #[name="chargeStateThenNotify1"];
 
     query (p_name :String)  := @org.thingpedia.iot.battery(name=p_name).charge()
@@ -284,10 +289,12 @@ dataset @org.thingpedia.iot.battery language "en" {
                    "if the ${p_name:const} battery is charging or not charging",
                    "whether the ${p_name:const} battery  is charged or not charged",
                    "if my ${p_name:const} battery is charging"]]
+    #[id=100026]
     #[name="chargeState1"];
 
     stream (p_name :String)  := monitor (@org.thingpedia.iot.battery(name=p_name).charge())
     #_[utterances=["when the charging state of my ${p_name:const} battery changes"]]
+    #[id=100027]
     #[name="chargeMonitorState1"];
 
     stream (p_name :String, p_charge :Enum(charging,not_charging)) := monitor (@org.thingpedia.iot.battery(name=p_name).charge()), charge == p_charge
@@ -299,17 +306,20 @@ dataset @org.thingpedia.iot.battery language "en" {
                    "when my ${p_name:const} battery is ${p_charge}",
                    "if my ${p_name:const} battery is ${p_charge}",
                    "when I am ${p_charge} ${p_name:const} battery"]]
+    #[id=100028]                   
     #[name="ChargeMonitorStateByState1"];
 
     stream (p_name :String) := monitor (@org.thingpedia.iot.battery.charge()), charge == enum(charging)
     #_[utterances=["when my ${p_name:const} battery starts the charge",
                    "if my ${p_name:const} battery starts charging",
                    "when the ${p_name:const} battery has started charging"]]
+    #[id=100029]
     #[name="ChargeMonitorStateByStateCharging1"];
 
     stream (p_name :String) := monitor (@org.thingpedia.iot.battery.charge()), charge == enum(not_charging)
     #_[utterances=["when my ${p_name:const} battery stops the charge",
                    "if the ${p_name:const} battery is topped up",
                    "when the ${p_name:const} battery has finished charging"]]
+    #[id=100030]
     #[name="ChargeMonitorStateByStateNotCharging1"];
 }

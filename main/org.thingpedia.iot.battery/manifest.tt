@@ -13,9 +13,9 @@ abstract class @org.thingpedia.iot.battery
   #[confirm=false]
   #[minimal_projection=["state", "value"]];
 
-  monitorable query charge(out charge : Enum(charging,not_charging))
-  #_[canonical="battery charging"]
-  #_[confirmation="the charging status of $__device"]
-  #[confirm=false]
-  #_[result=["the battery state {of ${__device}|} is ${charge}"]];
+    monitorable query charge(out charge : Enum(charging,not_charging))
+    #_[canonical="battery charging"]
+    #_[confirmation="the charging status of $__device"]
+    #[confirm=false]
+    #_[result=["the battery state {of ${__device}|} is ${charge}"]];
 }
