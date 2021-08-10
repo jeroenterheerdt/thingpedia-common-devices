@@ -1,4 +1,4 @@
-abstract class @org.thingpedia.iot.climate
+abstract class @org.thingpedia.iot.climate extends @org.thingpedia.iot.fan, @org.thingpedia.iot.temperature,  @org.thingpedia.iot.humidity
 #_[thingpedia_name="Climate"]
 #_[thingpedia_description="Interface for HVAC and Thermostat."]
 #_[description="Interface for HVAC and Thermostat."]
