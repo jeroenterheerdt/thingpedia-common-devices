@@ -136,6 +136,7 @@ dataset @org.thingpedia.iot.battery language "en" {
     program (p_name :String)  := @org.thingpedia.iot.battery(name=p_name).state()
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     #_[utterances=["is my ${p_name:const} battery low?",
                    "check if my ${p_name:const} battery is low",
                    "check if the ${p_name:const} battery too low",
@@ -216,110 +217,119 @@ dataset @org.thingpedia.iot.battery language "en" {
                    "do I have enough ${p_name:const} battery left?",
                    "how much ${p_name:const} battery do I have left?",
                    "what is my ${p_name:const} battery level?"]]
+=======
+    #_[utterances=["is my ${p_name:const} low?",
+                   "check if my ${p_name:const} is low",
+                   "check if the ${p_name:const} is too low",
+                   "is the ${p_name:const} charged?",
+                   "do I have enough ${p_name:const} left?",
+                   "how much ${p_name:const} do I have left?",
+                   "what is my ${p_name:const} level?"]]
+>>>>>>> b445fc7b (new dataset deisgn for battery)
     #[id=100017]
     #[name="StateThenNotify1"];
 
     query (p_name :String)  := @org.thingpedia.iot.battery(name=p_name).state()
-    #_[utterances=["the state of my ${p_name:const} battery",
-                   "if the ${p_name:const} battery is low or normal",
-                   "whether the ${p_name:const} battery is too low or normal",
-                   "if my ${p_name:const} battery has power",
-                   "whether I have enough ${p_name:const} battery"]]
+    #_[utterances=["the state of my ${p_name:const}",
+                   "if the ${p_name:const} is low or normal",
+                   "whether the ${p_name:const} is too low or normal",
+                   "if my ${p_name:const} has power",
+                   "whether I have enough ${p_name:const}"]]
     #[id=100018]
     #[name="State1"];
 
     stream (p_name :String)  := monitor (@org.thingpedia.iot.battery(name=p_name).state())
-    #_[utterances=["when the state of my ${p_name:const} battery changes"]]
+    #_[utterances=["when the state of my ${p_name:const} changes"]]
     #[id=100019]
     #[name="MonitorState1"];
 
     stream (p_name :String)  := monitor (@org.thingpedia.iot.battery(name=p_name).state()), state == enum(low)
-    #_[utterances=["when I am low on ${p_name:const} battery",
-                   "if my ${p_name:const} battery is finishing",
-                   "when the ${p_name:const} battery is running low",
-                   "if my ${p_name:const} battery starts running out",
-                   "when my ${p_name:const} battery has no juice"]]
+    #_[utterances=["when I am low on ${p_name:const}",
+                   "if my ${p_name:const} is finishing",
+                   "when the ${p_name:const} is running low",
+                   "if my ${p_name:const} starts running out",
+                   "when my ${p_name:const} has no juice"]]
     #[id=100020]
     #[name="MonitorStateByStateLow1"];
 
     stream (p_name :String)  := monitor (@org.thingpedia.iot.battery(name=p_name).state()), state == enum(normal)
-    #_[utterances=["when I have enough ${p_name:const} battery",
-                   "when my ${p_name:const} battery is charged",
-                   "if the ${p_name:const} battery is topped up",
-                   "when the ${p_name:const} battery has finished charging"]]
+    #_[utterances=["when I have enough ${p_name:const}",
+                   "when my ${p_name:const} is charged",
+                   "if the ${p_name:const} is topped up",
+                   "when the ${p_name:const}  has finished charging"]]
     #[id=100021]
     #[name="MonitorStateByStateNormal1"];
 
     stream (p_name :String, p_charge :Number)  := monitor (@org.thingpedia.iot.battery(name=p_name).state()), value >= p_charge
-    #_[utterances=["when the ${p_name:const} battery sensor is higher than ${p_charge} percent",
-                   "if the ${p_name:const} battery sensor level goes above ${p_charge} percent"]]
+    #_[utterances=["when the ${p_name:const} sensor is higher than ${p_charge} percent",
+                   "if the ${p_name:const} sensor level goes above ${p_charge} percent"]]
     #[id=100022]
     #[name="MonitorStateByValueGreaterThan1"];
 
     stream (p_name :String, p_charge :Number)  := monitor (@org.thingpedia.iot.battery(name=p_name).state()), value <= p_charge
-    #_[utterances=["when the ${p_name:const} battery sensor is lower than ${p_charge} percent",
-                   "if the ${p_name:const} battery sensor level goes below ${p_charge} percent"]]
+    #_[utterances=["when the ${p_name:const} sensor is lower than ${p_charge} percent",
+                   "if the ${p_name:const} sensor level goes below ${p_charge} percent"]]
     #[id=100023]
     #[name="MonitorStateByValueLessThan1"];
 
     stream (p_name :String, p_state :Enum(low,normal))  := monitor (@org.thingpedia.iot.battery(name=p_name).state()), state == p_state
-    #_[utterances=["when the ${p_name:const} battery becomes ${p_state}",
-                   "once my ${p_name:const} battery becomes ${p_state}",
-                   "if the ${p_name:const} battery is ${p_state}",
-                   "when my ${p_name:const} battery turns ${p_state}",
-                   "if my ${p_name:const} battery changes to ${p_state}"]]
+    #_[utterances=["when the ${p_name:const} becomes ${p_state}",
+                   "once my ${p_name:const} becomes ${p_state}",
+                   "if the ${p_name:const} is ${p_state}",
+                   "when my ${p_name:const} turns ${p_state}",
+                   "if my ${p_name:const} changes to ${p_state}"]]
     #[id=100024]
     #[name="MonitorStateByState1"];
 
     program (p_name :String)  := @org.thingpedia.iot.battery(name=p_name).charge()
-    #_[utterances=["is my ${p_name:const} battery charging?",
-                   "check if my ${p_name:const} battery is charging",
+    #_[utterances=["is my ${p_name:const} charging?",
+                   "check if my ${p_name:const} is charging",
                    "is my ${p_name:const} not charging?",
-                   "check if the ${p_name:const} battery is too low",
-                   "is the ${p_name:const} battery under charge?",
+                   "check if the ${p_name:const} is too low",
+                   "is the ${p_name:const} under charge?",
                    "which is the ${p_name:const} charging status?",
                    "in which status is the ${p_name:const} charging process?",
-                   "how much ${p_name:const} battery do I have left?",
-                   "what is my ${p_name:const} battery charge status?"]]
+                   "how much ${p_name:const} do I have left?",
+                   "what is my ${p_name:const} charge status?"]]
     #[id=100025]
     #[name="chargeStateThenNotify1"];
 
     query (p_name :String)  := @org.thingpedia.iot.battery(name=p_name).charge()
-    #_[utterances=["the charging process of my ${p_name:const} battery",
-                   "if the ${p_name:const} battery is charging or not charging",
-                   "whether the ${p_name:const} battery  is charged or not charged",
-                   "if my ${p_name:const} battery is charging"]]
+    #_[utterances=["the charging process of my ${p_name:const}",
+                   "if the ${p_name:const} is charging or not charging",
+                   "whether the ${p_name:const} is charged or not charged",
+                   "if my ${p_name:const} is charging"]]
     #[id=100026]
     #[name="chargeState1"];
 
     stream (p_name :String)  := monitor (@org.thingpedia.iot.battery(name=p_name).charge())
-    #_[utterances=["when the charging state of my ${p_name:const} battery changes"]]
+    #_[utterances=["when the charging state of my ${p_name:const} changes"]]
     #[id=100027]
     #[name="chargeMonitorState1"];
 
     stream (p_name :String, p_charge :Enum(charging,not_charging)) := monitor (@org.thingpedia.iot.battery(name=p_name).charge()), charge == p_charge
-    #_[utterances=["when the ${p_name:const} battery becomes ${p_charge}",
-                   "if the ${p_name:const} battery is ${p_charge}",
-                   "when my ${p_name:const} battery turns to ${p_charge}",
-                   "if my ${p_name:const} battery changes to ${p_charge}",
-                   "when the ${p_name:const} battery is ${p_charge}",
-                   "when my ${p_name:const} battery is ${p_charge}",
-                   "if my ${p_name:const} battery is ${p_charge}",
-                   "when I am ${p_charge} ${p_name:const} battery"]]
+    #_[utterances=["when the ${p_name:const} becomes ${p_charge}",
+                   "if the ${p_name:const} is ${p_charge}",
+                   "when my ${p_name:const} turns to ${p_charge}",
+                   "if my ${p_name:const} changes to ${p_charge}",
+                   "when the ${p_name:const} is ${p_charge}",
+                   "when my ${p_name:const} is ${p_charge}",
+                   "if my ${p_name:const} is ${p_charge}",
+                   "when I am ${p_charge} ${p_name:const}"]]
     #[id=100028]                   
     #[name="ChargeMonitorStateByState1"];
 
     stream (p_name :String) := monitor (@org.thingpedia.iot.battery.charge()), charge == enum(charging)
-    #_[utterances=["when my ${p_name:const} battery starts the charge",
-                   "if my ${p_name:const} battery starts charging",
-                   "when the ${p_name:const} battery has started charging"]]
+    #_[utterances=["when my ${p_name:const} starts the charge",
+                   "if my ${p_name:const} starts charging",
+                   "when the ${p_name:const} has started charging"]]
     #[id=100029]
     #[name="ChargeMonitorStateByStateCharging1"];
 
     stream (p_name :String) := monitor (@org.thingpedia.iot.battery.charge()), charge == enum(not_charging)
-    #_[utterances=["when my ${p_name:const} battery stops the charge",
-                   "if the ${p_name:const} battery is topped up",
-                   "when the ${p_name:const} battery has finished charging"]]
+    #_[utterances=["when my ${p_name:const} stops the charge",
+                   "if the ${p_name:const} is topped up",
+                   "when the ${p_name:const} has finished charging"]]
     #[id=100030]
     #[name="ChargeMonitorStateByStateNotCharging1"];
 }
