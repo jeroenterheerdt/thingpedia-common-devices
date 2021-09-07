@@ -264,12 +264,11 @@ dataset @org.thingpedia.iot.climate language "en" {
 
     action (p_name : String, p_mode :Enum(heat,cool,heat_cool,off,auto,dry,fan_only)) := @org.thingpedia.iot.climate(name=p_name).set_hvac_mode(mode=p_mode)
     #_[utterances=["set my ${p_name:const} to $p_mode",
-                   "turn the ${p_name:const} climate system to $p_mode",
+                   "turn the ${p_name:const} to $p_mode",
                    "set to $p_mode the ${p_name:const}",
                    "switch ${p_name:const} mode to $p_mode",
-                   "turn the ${p_name:const} air conditioning to $p_mode",
-                   "turn the ${p_name:const} ac $p_mode",
-                   "turn $p_mode the ${p_name:const} aircon"]]
+                   "turn the ${p_name:const} to $p_mode mode",
+                   "turn $p_mode the ${p_name:const} "]]
     #[id=110031]
     #[name="setModeGeneralName"];               
 
