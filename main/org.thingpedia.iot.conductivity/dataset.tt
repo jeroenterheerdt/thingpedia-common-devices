@@ -18,7 +18,7 @@ dataset @org.thingpedia.iot.conductivity language "en" {
     #[name="StateAsk"];
 
     stream := monitor(@org.thingpedia.iot.conductivity.state())
-    #_[utterances=["when the conductivity changes",
+    #_[utterances=["when the soil conductivity changes",
                    "when there is a variation in conductivity percentage",
                    "when the conductivity will rise or lower",
                    "if the conductivity level has a variation"]]
@@ -36,7 +36,7 @@ dataset @org.thingpedia.iot.conductivity language "en" {
     #[name="StateName"];
 
     query (p_name : String) := @org.thingpedia.iot.conductivity(name=p_name).state()
-    #_[utterances=["the state of the ${p_name:const} soil conductivity",
+    #_[utterances=["the state of the ${p_name:const} soil sensor",
                    "the ${p_name:const} ground conductivity",
                    "how ${p_name:const} earth conductivity is",
                    "the ${p_name:const} conductivity read by the sensor"]]
