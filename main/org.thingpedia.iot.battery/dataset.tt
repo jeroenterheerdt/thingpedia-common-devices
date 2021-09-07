@@ -256,19 +256,19 @@ dataset @org.thingpedia.iot.battery language "en" {
     #_[utterances=["when I have enough ${p_name:const}",
                    "when my ${p_name:const} is charged",
                    "if the ${p_name:const} is topped up",
-                   "when the ${p_name:const}  has finished charging"]]
+                   "when the ${p_name:const} has finished charging"]]
     #[id=100021]
     #[name="MonitorStateByStateNormal1"];
 
     stream (p_name :String, p_charge :Number)  := monitor (@org.thingpedia.iot.battery(name=p_name).state()), value >= p_charge
-    #_[utterances=["when the ${p_name:const} sensor is higher than ${p_charge} percent",
-                   "if the ${p_name:const} sensor level goes above ${p_charge} percent"]]
+    #_[utterances=["when the ${p_name:const} is higher than ${p_charge} percent",
+                   "if the ${p_name:const} level goes above ${p_charge} percent"]]
     #[id=100022]
     #[name="MonitorStateByValueGreaterThan1"];
 
     stream (p_name :String, p_charge :Number)  := monitor (@org.thingpedia.iot.battery(name=p_name).state()), value <= p_charge
-    #_[utterances=["when the ${p_name:const} sensor is lower than ${p_charge} percent",
-                   "if the ${p_name:const} sensor level goes below ${p_charge} percent"]]
+    #_[utterances=["when the ${p_name:const} is lower than ${p_charge} percent",
+                   "if the ${p_name:const} level goes below ${p_charge} percent"]]
     #[id=100023]
     #[name="MonitorStateByValueLessThan1"];
 
