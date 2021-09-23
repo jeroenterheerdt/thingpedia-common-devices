@@ -29,14 +29,14 @@ dataset @org.thingpedia.iot.conductivity language "en" {
     #_[utterances=["check the ${p_name:const} conductivity",
                    "what is the ${p_name:const} conductivity?",
                    "how is the ${p_name:const} earth conductivity?",
-                   "what does the ${p_name:const} say?",
-                   "what is the ${p_name:const} level?",
-                   "which percentage the ${p_name:const} is reading?"]]
+                   "what does the ${p_name:const} soil sensor say?",
+                   "what is the ${p_name:const} conductivity level?",
+                   "which percentage the ${p_name:const} soil conductivity is reading?"]]
     #[id=111004]
     #[name="StateName"];
 
     query (p_name : String) := @org.thingpedia.iot.conductivity(name=p_name).state()
-    #_[utterances=["the state of the ${p_name:const}",
+    #_[utterances=["the state of the ${p_name:const} soil conductivity",
                    "the ${p_name:const} ground conductivity",
                    "how ${p_name:const} earth conductivity is",
                    "the ${p_name:const} conductivity read"]]
@@ -46,8 +46,8 @@ dataset @org.thingpedia.iot.conductivity language "en" {
     stream (p_name : String) := monitor(@org.thingpedia.iot.conductivity(name=p_name).state())
     #_[utterances=["when the ${p_name:const} conductivity changes",
                    "when there is a variation in ${p_name:const} conductivity percentage",
-                   "when the ${p_name:const} will rise or lower",
-                   "if the ${p_name:const} level has a variation"]]
+                   "when the ${p_name:const} soil conductivity will rise or lower",
+                   "if the ${p_name:const} conductivity level has a variation"]]
     #[id=111006]
     #[name="StateNotifyName"];                    
 }
