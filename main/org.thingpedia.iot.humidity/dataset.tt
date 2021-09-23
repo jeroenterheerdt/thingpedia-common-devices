@@ -12,7 +12,7 @@ dataset @org.thingpedia.iot.humidity language "en" {
 
   query := @org.thingpedia.iot.humidity.humidity()
   #_[utterances=["the humidity sensor level",
-                 "the reading of the ${p_name} humidity sensor",
+                 "the reading of the humidity sensor",
                  "the level of the humidity",
                  "the humidity acquired from the humidity sensor",
                  "the humidity read by the humidity sensor",
@@ -33,9 +33,9 @@ dataset @org.thingpedia.iot.humidity language "en" {
 
   stream (p_state : Enum(humid, normal)) := monitor (@org.thingpedia.iot.humidity.humidity()), (state == p_state)
   #_[utterances=["when the humidity sensor says it is ${p_state}",
-                 "as soon as the humidity sensor read {p_state}",
-                 "when it gets {p_state}",
-                 "when the humidity is {p_state}"]]
+                 "as soon as the humidity sensor read ${p_state}",
+                 "when it gets ${p_state}",
+                 "when the humidity is ${p_state}"]]
   #[id=160004]
   #[name="monitorState"];
 
@@ -48,7 +48,7 @@ dataset @org.thingpedia.iot.humidity language "en" {
   #[name="monitorStateHumid"];
 
   stream := monitor (@org.thingpedia.iot.humidity.humidity()), (state == enum(normal))
-  #_[utterances=["when humidity begin normal"
+  #_[utterances=["when humidity begin normal",
                  "if it is no longer humid",
                  "when it is not humid anymore",
                  "at normal humidity level"]]
@@ -109,13 +109,13 @@ dataset @org.thingpedia.iot.humidity language "en" {
 
   stream (p_name : String) := monitor (@org.thingpedia.iot.humidity(name=p_name).humidity()), (state == enum(humid))
   #_[utterances=["when my ${p_name} says it is humid",
-                 "when the ${p_name} detects high humidity"]];
+                 "when the ${p_name} detects high humidity"]]
   #[id=160013]
   #[name="monitorStateNameHumid"];
 
   stream (p_name : String) := monitor (@org.thingpedia.iot.humidity(name=p_name).humidity()), (state == enum(normal))
   #_[utterances=["when my ${p_name} says it is not humid",
-                 "when the ${p_name} detects regular humidity"]];
+                 "when the ${p_name} detects regular humidity"]]
   #[id=160014]
   #[name="monitorStateNameNotHumid"];
 
