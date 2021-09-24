@@ -11,6 +11,6 @@ abstract class @org.thingpedia.iot.n2o
                 "nitrous oxide reading"]]
   #_[confirmation="the nitrous oxide index from $__device"]
   #[confirm=false]
-  #_[result=["the nitrous oxide reading ${n2o_value}", "it is ${n2o_state} CO in the room"]]
+  #_[result=["the nitrous oxide reading ${n2o_value}", "it is ${n2o_state} N2O in the room"]]
   #[minimal_projection=["n2o_state","n2o_value"]];
 }
