@@ -79,7 +79,7 @@ dataset @org.thingpedia.iot.gas language "en" {
     #[name="StateName"];
 
     stream (p_name : String) := monitor (@org.thingpedia.iot.gas(name=p_name).state())
-    #_[utterances=["when the ${p_name:const} gas detector starts or stops detecting any monoxide",
+    #_[utterances=["when the ${p_name:const} gas detector starts or stops detecting anything",
                    "when the ${p_name:const} gas detector starts or stops detecting gas",
                    "when the ${p_name:const} gas detector starts or stops detecting any gas",
                    "when my ${p_name:const} sensor starts detecting gas",
