@@ -1,0 +1,16 @@
+abstract class @org.thingpedia.iot.no
+#_[thingpedia_name="Nitrous Oxide Sensor"]
+#_[thingpedia_description="Interface for Nitrous Oxide Sensor."]
+#_[description="Interface for Nitrous Oxide Sensor."]
+#[license="BSD-3-Clause"]
+#[license_gplcompatible=true]
+#[subcategory="home"]
+{
+  monitorable query state(out no_value : Number, out no_state : Enum(detected,not_detected) )
+  #_[canonical=["nitrous monoxide sensor state",
+                "nitrous monoxide reading"]]
+  #_[confirmation="the nitrous monoxide index from $__device"]
+  #[confirm=false]
+  #_[result=["the nitrous monoxide reading ${no_value}", "it is ${no_state} CO in the room"]]
+  #[minimal_projection=["no_state","no_value"]];
+}
