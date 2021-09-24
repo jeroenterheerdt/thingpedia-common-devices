@@ -1,0 +1,18 @@
+[{
+    "a_id": "airquality",
+    "ha": {
+        "domain": "sensor",
+        "entity_id": "air_quality_state",
+        "init_call": {
+            "i_state": {
+                "rng": "AQI,nothing",
+                "k": "state"
+            },
+            "attrib": {
+                "friendly_name": "Air quality sensor",
+                "device_class": "air_quality",
+                "unique_id": "air_quality_sensor"
+            }
+        }
+    }
+}]
