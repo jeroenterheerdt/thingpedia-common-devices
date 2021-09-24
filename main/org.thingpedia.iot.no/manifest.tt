@@ -1,7 +1,7 @@
 abstract class @org.thingpedia.iot.no
-#_[thingpedia_name="Nitrous Oxide Sensor"]
-#_[thingpedia_description="Interface for Nitrous Oxide Sensor."]
-#_[description="Interface for Nitrous Oxide Sensor."]
+#_[thingpedia_name="Nitrous Monoxide Sensor"]
+#_[thingpedia_description="Interface for Nitrous Monoxide Sensor."]
+#_[description="Interface for Nitrous Monoxide Sensor."]
 #[license="BSD-3-Clause"]
 #[license_gplcompatible=true]
 #[subcategory="home"]
@@ -11,6 +11,6 @@ abstract class @org.thingpedia.iot.no
                 "nitrous monoxide reading"]]
   #_[confirmation="the nitrous monoxide index from $__device"]
   #[confirm=false]
-  #_[result=["the nitrous monoxide reading ${no_value}", "it is ${no_state} CO in the room"]]
+  #_[result=["the nitrous monoxide reading ${no_value}", "it is ${no_state} NO in the room"]]
   #[minimal_projection=["no_state","no_value"]];
 }
