@@ -22,23 +22,23 @@ dataset @org.thingpedia.iot.moisture language "en" {
   #[name="MonitorState"];
 
   program (p_name : String) := @org.thingpedia.iot.moisture(name=p_name).state()
-  #_[utterances=["what does the ${p_name} moisture sensor say?",
-                 "what is the ${p_name} moisture sensor level?",
-                 "which percentage the ${p_name} moisture sensor is reading"]]
+  #_[utterances=["what does the ${p_name:const} moisture sensor say?",
+                 "what is the ${p_name:const} moisture sensor level?",
+                 "which percentage the ${p_name:const} moisture sensor is reading"]]
   #[id=210004]
   #[name="StateThenNotifyName"];
 
   query (p_name : String) := @org.thingpedia.iot.moisture(name=p_name).state()
-  #_[utterances=["the state of the ${p_name} soil moisture",
-                 "the reading from the ${p_name} moisture sensor",
-                 "the soil moisture gatherd from ${p_name}"]]
+  #_[utterances=["the state of the ${p_name:const} soil moisture",
+                 "the reading from the ${p_name:const} moisture sensor",
+                 "the soil moisture gatherd from ${p_name:const}"]]
   #[id=210005]
   #[name="StateName"];
 
   stream (p_name : String) := monitor(@org.thingpedia.iot.moisture(name=p_name).state())
-  #_[utterances=["when the ${p_name} moisture changes",
-                 "when the ${p_name} moisture level has a variation",
-                 "as soons as the ${p_name} moisture level changes"]]
+  #_[utterances=["when the ${p_name:const} moisture changes",
+                 "when the ${p_name:const} moisture level has a variation",
+                 "as soons as the ${p_name:const} moisture level changes"]]
   #[id=210006]
   #[name="MonitorStateName"];
 } 
