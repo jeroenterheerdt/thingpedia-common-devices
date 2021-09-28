@@ -1,17 +1,34 @@
 [{
-    "a_id": "airquality",
+    "a_id": "carbonmonoxide",
     "ha": {
         "domain": "sensor",
-        "entity_id": "air_quality_state",
+        "entity_id": "carbon_monoxide_level",
         "init_call": {
             "i_state": {
-                "rng": "gas,PM01,PM25,PM10,AQI,O3,CO,CO2,SO2,N2O,NO,NO2,nothing",
+                "rng": "0,100",
+                "k": "number"
+            },
+            "attrib": {
+                "friendly_name": "Carbon Monoxide sensor level",
+                "device_class": "carbon_monoxide",
+                "unique_id": "carbon_monoxide_sensor"
+            }
+        }
+    }
+}, {
+    "a_id": "carbonmonoxide",
+    "ha": {
+        "domain": "sensor",
+        "entity_id": "carbon_monoxide_state",
+        "init_call": {
+            "i_state": {
+                "rng": "CO,nothing",
                 "k": "state"
             },
             "attrib": {
-                "friendly_name": "Air quality sensor",
+                "friendly_name": "Carbon Monoxide sensor state",
                 "device_class": "carbon_monoxide",
-                "unique_id": "air_quality_sensor"
+                "unique_id": "carbon_monoxide_sensor"
             }
         }
     }
