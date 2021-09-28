@@ -1,6 +1,6 @@
 abstract class @org.thingpedia.iot.uv
 #_[thingpedia_name="UV Sensor"]
-#_[thingpedia_description="Interface for UV Sensor."]
+#_[thingpedia_description="Interface for UltraViolet Sensor."]
 #_[description="Interface for uv Sensor."]
 #[license="BSD-3-Clause"]
 #[license_gplcompatible=true]
