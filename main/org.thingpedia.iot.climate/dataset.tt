@@ -106,54 +106,6 @@ dataset @org.thingpedia.iot.climate language "en" {
     #[id=110014]
     #[name="currentTemp"];
 
-    action := @org.thingpedia.iot.climate.set_hvac_mode(mode=enum(off))
-    #_[utterances=["turn the heating off",
-                   "turn off the heater",
-                   "turn off the ac",
-                   "switch off the heater",
-                   "switch the aircon off"]];
-
-    action := @org.thingpedia.iot.climate.set_hvac_mode(mode=enum(auto))
-    #_[utterances=["turn the hvac to auto",
-                   "set to auto the hvac",
-                   "switch hvac mode to auto"]];
-
-    action := @org.thingpedia.iot.climate.set_hvac_mode(mode=enum(dry))
-    #_[utterances=["set hvac to drying",
-                   "start drying",
-                   "turn on the drying",
-                   "turn the dry mode to on"]];
-
-    action := @org.thingpedia.iot.climate.set_hvac_mode(mode=enum(fan_only))
-    #_[utterances=["turn only the fan on",
-                   "turn on the fan",
-                   "start the fan of the hvac",
-                   "switch the hvac fan on"]];
-
-    query := @org.thingpedia.iot.climate.hvac_preset()
-    #_[utterances=["the state of my hvac",
-                   "what the HVAC is currently doing",
-                   "current HVAC action"]];
-
-    query := @org.thingpedia.iot.climate.hvac_presets_aval()
-    #_[utterances=["the available presets for the HVAC system",
-                   "the HVAC system has the following available presets"]];
-
-    action (p_preset :Enum(eco,away,boost,comfort,home,sleep,activity)) := @org.thingpedia.iot.climate.set_hvac_preset(preset=p_preset)
-    #_[utterances=["set my hvac to $p_preset",
-                   "turn the hvac preset to $p_preset",
-                   "set to $p_preset the hvac",
-                   "switch hvac preset to $p_preset",
-                   "change to $p_preset the preset of the hvac"]];
-
-    query := @org.thingpedia.iot.climate.target_temperature()
-    #_[utterances=["the target temperature set for my hvac",
-                   "the target temperature set on my thermostat"]];
-
-    query := @org.thingpedia.iot.climate.current_temperature()
-    #_[utterances=["the current temperature read by the thermostat",
-                   "the temperature around the thermostat"]];
-
     action := @org.thingpedia.iot.climate.set_target_temperature(value=$?)
     #_[utterances=["change the temperature on my thermostat",
                    "set temperature of my hvac",
@@ -363,6 +315,7 @@ dataset @org.thingpedia.iot.climate language "en" {
 
     action (p_name : String, p_preset :Enum(eco,away,boost,comfort,home,sleep,activity)) := @org.thingpedia.iot.climate(name=p_name).set_hvac_preset(preset=p_preset)
 <<<<<<< HEAD
+<<<<<<< HEAD
     #_[utterances=["set my ${p_name:const} to $p_preset",
                    "turn the ${p_name:const} preset to $p_preset",
                    "set to $p_preset the ${p_name:const}",
@@ -376,12 +329,17 @@ dataset @org.thingpedia.iot.climate language "en" {
 =======
                    "change to $p_preset the preset of the ${p_name:const}"]]
 =======
+=======
+>>>>>>> 9b21c56f3232921ce554aa13a9a5558e34b63595
     #_[utterances=["set my ${p_name:const} HVAC to $p_preset",
                    "turn the ${p_name:const} climate system preset to $p_preset",
                    "set to $p_preset the ${p_name:const} HVAC",
                    "switch ${p_name:const} HVAC preset to $p_preset",
                    "change to $p_preset the preset of the ${p_name:const} climate system"]]
+<<<<<<< HEAD
 >>>>>>> 8c26fb78 (fixed device naming for climate device)
+=======
+>>>>>>> 9b21c56f3232921ce554aa13a9a5558e34b63595
     #[id=110038]
     #[name="setPresetName"];
 
@@ -403,6 +361,7 @@ dataset @org.thingpedia.iot.climate language "en" {
                    "set temperature of my ${p_name:const}"]]
     #[id=110041]
     #[name="setTargetTempAskName"];
+<<<<<<< HEAD
 >>>>>>> ec7b7e92 (base update - climate device)
 
     action (p_name : String, p_value :Measure(C)) := @org.thingpedia.iot.climate(name=p_name).set_target_temperature(value=p_value)
@@ -462,6 +421,31 @@ dataset @org.thingpedia.iot.climate language "en" {
     #[name="maxTempName"];
 
     action (p_name : String) := @org.thingpedia.iot.climate(name=p_name).set_minmax_temperature(low=$?, high=$?)
+=======
+
+    action (p_name : String, p_value :Measure(C)) := @org.thingpedia.iot.climate(name=p_name).set_target_temperature(value=p_value)
+    #_[utterances=["set temperature on my ${p_name:const} to $p_value",
+                   "set my ${p_name:const} hvac to ${p_value:const}",
+                   "set the temperature to ${p_value:const} on my ${p_name:const}"]]
+    #[id=110042]
+    #[name="setTargetTempName"];
+
+    query (p_name : String) := @org.thingpedia.iot.climate.min_temperature()
+    #_[utterances=["the minimum temperature set on the ${p_name:const}",
+                   "the minimum temperature range on the ${p_name:const}",
+                   "the lowest temperature possible on ${p_name:const}"]]
+    #[id=110043]
+    #[name="minTempName"];
+
+    query (p_name : String) := @org.thingpedia.iot.climate.max_temperature()
+    #_[utterances=["the maximum temperature set on the ${p_name:const}",
+                   "the maximum temperature range on the ${p_name:const}",
+                   "the highest temperature possible on ${p_name:const}"]]
+    #[id=110044]
+    #[name="maxTempName"];
+
+    action (p_name : String) := @org.thingpedia.iot.climate(name=p_name).set_minmax_temperature(low=$?, high=$?)
+>>>>>>> 9b21c56f3232921ce554aa13a9a5558e34b63595
     #_[utterances=["change the minimum and maximum temperatures on my ${p_name:const}"]]
     #[id=110045]
     #[name="setminmaxTempAskName"];
@@ -510,12 +494,16 @@ dataset @org.thingpedia.iot.climate language "en" {
                    "the highest humidity possible on ${p_name:const}"]]
     #[id=110052]
     #[name="maxHumName"];
+<<<<<<< HEAD
 >>>>>>> ec7b7e92 (base update - climate device)
+=======
+>>>>>>> 9b21c56f3232921ce554aa13a9a5558e34b63595
 
     action (p_name : String, p_value :Enum(on,off)) := @org.thingpedia.iot.climate(name=p_name).set_aux_heat(value=p_value)
     #_[utterances=["set the ${p_name:const} auxiliary heater to $p_value",
                    "turn the ${p_name:const} auxiliary heater $p_value",
                    "set to $p_value the ${p_name:const} auxiliary heater",
+<<<<<<< HEAD
 <<<<<<< HEAD
                    "switch ${p_name:const} auxiliary heater $p_value"]];
 
@@ -529,6 +517,11 @@ dataset @org.thingpedia.iot.climate language "en" {
     #[id=110053]
     #[name="setAuxHeatName"];
 >>>>>>> ec7b7e92 (base update - climate device)
+=======
+                   "switch ${p_name:const} auxiliary heater $p_value"]]
+    #[id=110053]
+    #[name="setAuxHeatName"];
+>>>>>>> 9b21c56f3232921ce554aa13a9a5558e34b63595
 
     action (p_name : String, p_value :Enum(on,off)) := @org.thingpedia.iot.climate(name=p_name).set_hvac_onoff(value=p_value)
     #_[utterances=["set the ${p_name:const} HVAC to ${p_value}",

@@ -1,5 +1,4 @@
 dataset @org.thingpedia.iot.cover language "en" {
-<<<<<<< HEAD
     program  := @org.thingpedia.iot.cover.state()
     #_[utterances=["is my curtain open?",
                    "are my curtains closed?",
@@ -7,7 +6,7 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "are my curtains put down?",
                    "did I raise the curtains?",
                    "check whether the curtains are lowered",
-=======
+
     program := @org.thingpedia.iot.cover.state() 
     #_[utterances=["is my cover open?",
                    "are my covers closed?",
@@ -17,7 +16,6 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "check whether the covers are closed",
                    "do the covers are closing?",
                    "is the cover opening?",
->>>>>>> 2c6f02ec (updated cover)
                    "is my awning open?",
                    "are my awnings closed?",
                    "check if my awning is opening",
@@ -149,11 +147,6 @@ dataset @org.thingpedia.iot.cover language "en" {
     #[id=120002]
     #[name="State"];  
 
-<<<<<<< HEAD
-    stream (p_state :Enum(open,opening,closed,closing))  := monitor (@org.thingpedia.iot.cover.state()), state == p_state
-    #_[utterances=["when the curtains are ${p_state}",
-                   "when my curtains gets ${p_state}",
-=======
     stream := monitor (@org.thingpedia.iot.cover.state())
     #_[utterances=["when my covers are open or close",
                    "the moment the cover is opening or closing",
@@ -283,7 +276,6 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "when the covers are ${p_state}",
                    "at the covers ${p_state}",
                    "the moment the cover ${p_state}",
->>>>>>> 2c6f02ec (updated cover)
                    "when my awning is ${p_state}",
                    "when the awnings are ${p_state}",
                    "at the awnings ${p_state}",
@@ -327,14 +319,6 @@ dataset @org.thingpedia.iot.cover language "en" {
     #[id=120004]
     #[name="MonitorStateByState"];
 
-<<<<<<< HEAD
-    stream  := monitor (@org.thingpedia.iot.cover.state()), state == enum(open)
-    #_[utterances=["when my curtains are raised",
-                   "when the curtains are put up",
-                   "when I bring up my curtains",
-                   "when my awning is open",
-                   "when the awnings are open",
-=======
     stream := monitor (@org.thingpedia.iot.cover.state()), state == enum(opening)
     #_[utterances=["when my cover is opening",
                    "when the covers are opening",
@@ -427,7 +411,6 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "when my awning is extended",
                    "when the awnings are extended",
                    "when the awning get opened",
->>>>>>> 2c6f02ec (updated cover)
                    "when I extend my awnings",
                    "the moment the awnings are opened",
                    "when anyone extends the awnings",
@@ -776,7 +759,6 @@ dataset @org.thingpedia.iot.cover language "en" {
     #[id=120011]
     #[name="SetOpencloseWithStateClose"];
 
-<<<<<<< HEAD
     program (p_name :String)  := @org.thingpedia.iot.cover(name=p_name).state()
     #_[utterances=["are my ${p_name:const} curtains open?",
                    "are my ${p_name:const} curtains closed?",
@@ -978,8 +960,6 @@ dataset @org.thingpedia.iot.cover language "en" {
     #[id=54932716]
     #[name="SetOpencloseWithStateClose1"];
 
-}
-=======
     action := @org.thingpedia.iot.cover.set_openclosestop(state=enum(stop))
     #_[utterances=["stop closing the cover",
                    "stop the covers opening",
@@ -2229,4 +2209,3 @@ dataset @org.thingpedia.iot.cover language "en" {
     #[id=120036]
     #[name="setTiltPositionName"];
 }
->>>>>>> 2c6f02ec (updated cover)

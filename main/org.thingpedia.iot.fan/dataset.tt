@@ -168,9 +168,70 @@ dataset @org.thingpedia.iot.fan language "en" {
     #[id=54308673]
     #[name="SetOscillationWithOscillationOff"];
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     program (p_name :String)  := @org.thingpedia.iot.fan(name=p_name).state()
+    action (p_direction :Enum(forward,reverse)) := @org.thingpedia.iot.fan.set_direction(direction=p_direction)
+    #_[utterances=["set fan 's direction to ${p_direction}",
+                   "turn the direction of the fan ${p_direction}",
+                   "switch the direction of the fan to ${p_direction}", 
+                   "help me to set the fan 's orientation to ${p_direction}"]]
+    #[id=54308716]
+    #[name="FanDirection"];
+
+    action (p_preset :Enum(auto,smart,whoosh,eco,breeze)) := @org.thingpedia.iot.fan.set_preset_mode(preset=p_preset)
+    #_[utterances=["set fan 's preset to ${p_preset}",
+                   "turn the preset of the fan ${p_preset}",
+                   "switch the preset of the fan to ${p_preset}", 
+                   "help me to set the fan 's preset to ${p_preset}"]]
+    #[id=54308936]
+    #[name="FanPreset"];
+
+    program := @org.thingpedia.iot.fan.preset_mode() 
+    #_[utterances=["which preset is using my fan?",
+                   "check the preset of the fan",
+                   "which is the fan 's preset?",
+                   "the preset of the fan"]]
+    #[id=54309611]
+    #[name="StateThenNotifyPreset"];
+
+    query := @org.thingpedia.iot.fan.preset_mode()
+    #_[utterances=["which is the fan preset",
+                   "whatever fan preset",
+                   "the preset currently used by my fan"]]
+    #[id=54309619]
+    #[name="StatePreset"];
+
+    stream (p_preset :Enum(none,auto,smart,whoosh,eco,breeze)) := monitor (@org.thingpedia.iot.fan.preset_mode()), preset == p_preset
+    #_[utterances=["when the fan's preset is ${p_preset}",
+                   "when my fan is in ${p_preset}",
+                   "when the fan changes to ${p_preset}",
+                   "when my fan gets switched ${p_preset}",
+                   "if my fan is switched to ${p_preset}",
+                   "if the fan is switched to ${p_preset}",
+                   "if the fan is turned ${p_preset}",
+                   "when the fan is switched to ${p_preset}",
+                   "when I turn to ${p_preset} my fan",
+                   "when my fan turns ${p_preset}",
+                   "when the fan is set to ${p_preset}"]]
+    #[id=54309626]
+    #[name="MonitorStateByStatePreset"];
+
+    program := @org.thingpedia.iot.fan.preset_modes_aval() 
+    #_[utterances=["which presets are available for my fan?",
+                   "check the available presets of the fan",
+                   "which are the fan 's available presets?",
+                   "the available presets of the fan"]]
+    #[id=54308611]
+    #[name="StateThenNotifyPresetAval"];
+
+    query := @org.thingpedia.iot.fan.preset_modes_aval()
+    #_[utterances=["available fan presets",
+                   "whatever fan presets available",
+                   "the presets currently available for my fan"]]
+    #[id=54308619]
+    #[name="StatePresetAval"];
+
+    program (p_name :String) := @org.thingpedia.iot.fan(name=p_name).state()
     #_[utterances=["is the ${p_name:const} fan on?",
                    "check if my ${p_name:const} fan is on",
                    "is the ${p_name:const} fan turned on?",
@@ -198,7 +259,16 @@ dataset @org.thingpedia.iot.fan language "en" {
     #[id=54308692]
     #[name="MonitorState1"];
 
-    stream (p_name :String, p_state :Enum(on,off))  := monitor (@org.thingpedia.iot.fan(name=p_name).state()), state == p_state
+    query (p_name :String) := @org.thingpedia.iot.fan(name=p_name).state()
+    #_[utterances=["if the ${p_name:const} fan is turning",
+                   "whether my ${p_name:const} fan is on or off",
+                   "if my ${p_name:const} fan is runnig",
+                   "whether the ${p_name:const} fan is on or off",
+                   "if my ${p_name:const} fan is switched on or off"]]
+    #[id=54308619]
+    #[name="StateName"];
+
+    stream (p_name :String, p_state :Enum(on,off)) := monitor (@org.thingpedia.iot.fan(name=p_name).state()), state == p_state
     #_[utterances=["when the ${p_name:const} fan turns ${p_state}",
                    "when my ${p_name:const} fan is ${p_state}",
                    "when the ${p_name:const} fan changes to ${p_state}",
@@ -224,6 +294,56 @@ dataset @org.thingpedia.iot.fan language "en" {
     #[name="MonitorStateByStateOff1"];
 
     program (p_name :String)  := @org.thingpedia.iot.fan(name=p_name).oscillation()
+                   "if my ${p_name:const} fan becomes ${p_state}",
+                   "when my ${p_name:const} fan gets turned ${p_state}",
+                   "when the ${p_name:const} fan is switched ${p_state}",
+                   "when I turn ${p_state} fan my ${p_name:const}",
+                   "if I switch ${p_state} fan my ${p_name:const}"]]
+    #[id=54308694]
+    #[name="MonitorStateByState1"];
+    
+    program (p_name :String) := @org.thingpedia.iot.fan(name=p_name).current_speed() 
+    #_[utterances=["check the ${p_name:const} fan speed",
+                   "which is the current ${p_name:const} fan 's speed",
+                   "the actual ${p_name:const} fan 's speed"]]
+    #[id=54308671]
+    #[name="SpeedStateThenNotifyName"];
+
+    query (p_name :String) := @org.thingpedia.iot.fan(name=p_name).current_speed()
+    #_[utterances=["which is the speed of the ${p_name:const} fan",
+                   "if the ${p_name:const} fan has a speed",
+                   "whether is the speed of my ${p_name:const} fan"]]
+    #[id=54308679]
+    #[name="SpeedStateName"];
+
+    stream (p_name :String) := monitor (@org.thingpedia.iot.fan(name=p_name).current_speed())
+    #_[utterances=["when my ${p_name:const} fan speeds up or dowm",
+                   "when the ${p_name:const} fan speed changes",
+                   "as soon as the ${p_name:const} fan 's speed changes"]]
+    #[id=54308674]
+    #[name="SpeedMonitorStateName"];
+
+    action (p_name :String) := @org.thingpedia.iot.fan.increase_speed()
+    #_[utterances=["raise my ${p_name:const} fan 's speed",
+                   "turn the speed of the ${p_name:const} fan up",
+                   "increase the speed of the ${p_name:const} fan", 
+                   "can you increase my ${p_name:const} fan 's speed",
+                   "help me raise the speed of the ${p_name:const} fan",
+                   "speed up the ${p_name:const} fan"]]
+    #[id=54308696]
+    #[name="SetSpeedUpName"];
+
+    action (p_name :String) := @org.thingpedia.iot.fan.decrease_speed()
+    #_[utterances=["lower my ${p_name:const} fan 's speed",
+                   "turn the speed of the ${p_name:const} fan down",
+                   "decrease the speed of the ${p_name:const} fan", 
+                   "can you decrease my ${p_name:const} fan 's speed",
+                   "help me lower the speed of the ${p_name:const} fan",
+                   "slow down the ${p_name:const} fan"]]
+    #[id=54308696]
+    #[name="SetSpeedDownName"];
+
+    program (p_name :String) := @org.thingpedia.iot.fan(name=p_name).oscillation()
     #_[utterances=["is the ${p_name:const} fan oscillating?",
                    "check if my ${p_name:const} fan is swinging",
                    "is the ${p_name:const} fan moving?",
@@ -289,6 +409,37 @@ dataset @org.thingpedia.iot.fan language "en" {
     #[name="SetPowerWithPowerOff1"];
 
     action (p_name :String)  := @org.thingpedia.iot.fan(name=p_name).set_oscillation(oscillation=enum(on))
+    stream (p_name :String, p_state :Enum(oscillating,not_oscillating)) := monitor (@org.thingpedia.iot.fan(name=p_name).oscillation()), state == p_state
+    #_[utterances=["when the ${p_name:const} is ${p_state}"]]
+    #[id=54308717]
+    #[name="MonitorOscillationByState1"];
+
+    stream (p_name :String) := monitor (@org.thingpedia.iot.fan(name=p_name).oscillation()), state == enum(oscillating)
+    #_[utterances=["when my ${p_name:const} starts oscillating",
+                   "when I oscillate the ${p_name:const}",
+                   "when my ${p_name:const} is swinging"]]
+    #[id=54308718]
+    #[name="MonitorOscillationByStateOscillating1"];
+
+    stream (p_name :String) := monitor (@org.thingpedia.iot.fan(name=p_name).oscillation()), state == enum(not_oscillating)
+    #_[utterances=["when my ${p_name:const} stops oscillating",
+                   "when the ${p_name:const} stops swinging",
+                   "when the ${p_name:const} oscillation stops"]]
+    #[id=54308721]
+    #[name="MonitorOscillationByStateNotOscillating1"];
+
+    action (p_name :String, p_power :Enum(on,off)) := @org.thingpedia.iot.fan(name=p_name).set_power(power=p_power)
+    #_[utterances=["turn ${p_power} my ${p_name:const} fan",
+                   "switch ${p_power} the ${p_name:const} fan",
+                   "${p_power} the ${p_name:const} fan",
+                   "can you switch ${p_power} my ${p_name:const} fan",
+                   "help me turn ${p_power} my ${p_name:const} fan",
+                   "I want to switch ${p_power} the ${p_name:const} fan",
+                   "power ${p_power} the ${p_name:const} fan"]]
+    #[id=54308724]
+    #[name="SetPowerWithPower1"];
+
+    action (p_name :String) := @org.thingpedia.iot.fan(name=p_name).set_oscillation(oscillation=enum(on))
     #_[utterances=["oscillate my ${p_name:const} fan",
                    "move the ${p_name:const} fan",
                    "turn my ${p_name:const} fan",
@@ -305,8 +456,7 @@ dataset @org.thingpedia.iot.fan language "en" {
                    "stop turning the ${p_name:const} fan",
                    "stop moving the ${p_name:const} fan",
                    "stop the ${p_name:const} fan from swinging"]]
-=======
-=======
+
     action (p_direction :Enum(forward,reverse)) := @org.thingpedia.iot.fan.set_direction(direction=p_direction)
     #_[utterances=["set fan 's direction to ${p_direction}",
                    "turn the direction of the fan ${p_direction}",
@@ -368,7 +518,6 @@ dataset @org.thingpedia.iot.fan language "en" {
     #[id=54308619]
     #[name="StatePresetAval"];
 
->>>>>>> 71abf7e7 (updated fan device with more functions)
     program (p_name :String) := @org.thingpedia.iot.fan(name=p_name).state()
     #_[utterances=["is the ${p_name:const} fan on?",
                    "check if my ${p_name:const} fan is on",
@@ -515,37 +664,12 @@ dataset @org.thingpedia.iot.fan language "en" {
     #[name="SetOscillationWithOscillationOn1"];
 
     action (p_name :String) := @org.thingpedia.iot.fan(name=p_name).set_oscillation(oscillation=enum(off))
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 71abf7e7 (updated fan device with more functions)
     #_[utterances=["stop my ${p_name} fan from oscillating",
                    "stop the ${p_name} fan from turning",
                    "halt my oscillating ${p_name} fan",
                    "stop turning the ${p_name} fan",
                    "stop moving the ${p_name} fan",
                    "stop the ${p_name} fan from swinging"]]
-<<<<<<< HEAD
->>>>>>> 27168b3c (updated fan device)
-=======
-    #_[utterances=["stop my ${p_name} from oscillating",
-                   "stop the ${p_name} from turning",
-                   "halt my oscillating ${p_name}",
-                   "stop turning the ${p_name}",
-                   "stop moving the ${p_name}",
-                   "stop the ${p_name} from swinging"]]
->>>>>>> ce5653b3 (updated fan to new naming approach)
-=======
->>>>>>> 71abf7e7 (updated fan device with more functions)
-=======
-    #_[utterances=["stop my ${p_name:const} fan from oscillating",
-                   "stop the ${p_name:const} fan from turning",
-                   "halt my oscillating ${p_name:const} fan",
-                   "stop turning the ${p_name:const} fan",
-                   "stop moving the ${p_name:const} fan",
-                   "stop the ${p_name:const} fan from swinging"]]
->>>>>>> eba34713 (fix for Fan device  name's placeholder)
     #[id=54308741]
     #[name="SetOscillationWithOscillationOff1"];
 
