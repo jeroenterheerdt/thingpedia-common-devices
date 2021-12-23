@@ -253,7 +253,7 @@ module.exports = class HomeAssistantGateway extends Tp.BaseDevice {
     async _reconnect() {
         try {
             await this._connection.setSocket(await this._createSocket({ setupRetry: 10 }));
-        } catch (e) {
+        } catch(e) {
             console.error(`Failed to reconnect to Home Assistant: ` + e);
         }
     }
@@ -271,10 +271,10 @@ module.exports = class HomeAssistantGateway extends Tp.BaseDevice {
 
     queryInterface(iface) {
         switch (iface) {
-            case 'subdevices':
-                return this._subdevices;
-            default:
-                return super.queryInterface(iface);
+        case 'subdevices':
+            return this._subdevices;
+        default:
+            return super.queryInterface(iface);
         }
     }
 
@@ -285,7 +285,7 @@ module.exports = class HomeAssistantGateway extends Tp.BaseDevice {
                 setupRetry: 10,
             });
             await this._subdevices.start();
-        } catch (e) {
+        } catch(e) {
             console.error(e);
         }
     }
@@ -339,12 +339,12 @@ module.exports = class HomeAssistantGateway extends Tp.BaseDevice {
                     // try again in a second
                     setTimeout(() => connect(newTries), 1000);
                 };
-                const onOpen = async() => {
+                const onOpen = async () => {
                     try {
                         if (this._accessTokenExpired)
                             await this.refreshCredentials();
                         socket.send(JSON.stringify({ type: 'auth', access_token: this.accessToken }));
-                    } catch (e) {
+                    } catch(e) {
                         console.error('failed to send auth message', e);
                         invalidAuth = true;
                         socket.close();
@@ -354,17 +354,17 @@ module.exports = class HomeAssistantGateway extends Tp.BaseDevice {
                     const message = JSON.parse(data);
 
                     switch (message.type) {
-                        case 'auth_invalid':
-                            invalidAuth = true;
-                            socket.close();
-                            break;
+                    case 'auth_invalid':
+                        invalidAuth = true;
+                        socket.close();
+                        break;
 
-                        case 'auth_ok':
-                            socket.removeListener('close', onClose);
-                            socket.removeListener('open', onOpen);
-                            socket.removeListener('message', onMessage);
-                            resolve(socket);
-                            break;
+                    case 'auth_ok':
+                        socket.removeListener('close', onClose);
+                        socket.removeListener('open', onOpen);
+                        socket.removeListener('message', onMessage);
+                        resolve(socket);
+                        break;
                     }
                 };
 
