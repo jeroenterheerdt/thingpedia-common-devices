@@ -1,7 +1,7 @@
 dataset @org.thingpedia.iot.illuminance language "en" {
 
   program := @org.thingpedia.iot.illuminance.illuminance()
-  #_[utterances=["which is the illuminance sensor reading?"
+  #_[utterances=["which is the illuminance sensor reading?",
                  "what is the illuminance according to the sensor?",
                  "check the light intensity",
                  "check the illuminance level"]]

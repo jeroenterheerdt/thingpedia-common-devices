@@ -1,12 +1,4 @@
 dataset @org.thingpedia.iot.cover language "en" {
-    program  := @org.thingpedia.iot.cover.state()
-    #_[utterances=["is my curtain open?",
-                   "are my curtains closed?",
-                   "check if my curtain is raised",
-                   "are my curtains put down?",
-                   "did I raise the curtains?",
-                   "check whether the curtains are lowered",
-
     program := @org.thingpedia.iot.cover.state() 
     #_[utterances=["is my cover open?",
                    "are my covers closed?",
@@ -184,93 +176,6 @@ dataset @org.thingpedia.iot.cover language "en" {
     #[id=120003]
     #[name="MonitorState"];
     
-    program = @org.thingpedia.iot.cover(all=true).state()
-    #_[utterances=["which cover is low?",
-                   "there is any cover open?",
-                   "are all the cover closed?",
-                   "which covers are low?",                
-                   "list the state of all the covers",
-                   "tell me if all the covers are raised",
-                   "are all my covers open?",
-                   "are my covers closed?",
-                   "check if my covers are opening",
-                   "are my covers closing?",
-                   "check whether the covers are closed",
-                   "do the covers are closing?",
-                   "are the covers opening?",
-                   "are all my awnings open?",
-                   "are my awnings closed?",
-                   "check if my awnings are opening",
-                   "are my awnings closing?", 
-                   "check whether the awnings are closed",
-                   "do the awnings are closing?",
-                   "are the awnings opening?",
-                   "are all my blinds open?",
-                   "are my blinds closed?",
-                   "check if my blinda are opening",
-                   "are my blinds closing?",
-                   "check whether the blinds are closed",
-                   "do the blinds are closing?",
-                   "are the blinds opening?",
-                   "are all my curtains open?",
-                   "are my curtains closed?",
-                   "check if my curtains are opening",
-                   "are my curtains closing?",
-                   "check whether the curtains are closed",
-                   "do the curtains are closing?",
-                   "are the curtains opening?",
-                   "are all my dampers open?",
-                   "are my dampers closed?",
-                   "check if my dampers are opening",
-                   "are my dampers closing?",
-                   "check whether the dampers are closed",
-                   "do the dampers are closing?",
-                   "are the dampers opening?",
-                   "are all my doors open?",
-                   "are my doors closed?",
-                   "check if my door is opening",
-                   "are my doors closing?",
-                   "check whether the doors are closed",
-                   "do the doors are closing?",
-                   "are the doors opening?",
-                   "are all my garage doors open?",
-                   "are my garage doors closed?",
-                   "check if my garage door is opening",
-                   "are my garage doors closing?",
-                   "check whether the garage doors are closed",
-                   "do the garage doors are closing?",
-                   "are the garage doors opening?",
-                   "are all my gates open?",
-                   "are my gates closed?",
-                   "check if my gates are opening",
-                   "are my gates closing?",
-                   "check whether the gates are closed",
-                   "do the gates are closing?",
-                   "are the gates opening?",
-                   "are all my shades open?",
-                   "are my shades closed?",
-                   "check if my shade is opening",
-                   "are my shades closing?",
-                   "check whether the shades are closed",
-                   "do the shades are closing?",
-                   "are the shades opening?",
-                   "are all my shutters open?",
-                   "are my shutters closed?",
-                   "check if my shutter is opening",
-                   "are my shutters closing?",
-                   "check whether the shutters are closed",
-                   "do the shutters are closing?",
-                   "are the shutters opening?",
-                   "are all my windows open?",
-                   "are my windows closed?",
-                   "check if my windows are opening",
-                   "are my windows closing?", 
-                   "check whether the windows are closed",
-                   "do the windows are closing?",
-                   "are the windows opening?"]]
-    #[id=121003]
-    #[name="AllStateThenNotify"];
-    
     stream (p_state :Enum(opening,open,closing,closed)) := monitor (@org.thingpedia.iot.cover.state()), state == p_state
     #_[utterances=["when my cover is ${p_state}",
                    "when the covers are ${p_state}",
@@ -369,7 +274,7 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "the moment the garage doors are opening",
                    "when anyone is opening the garage door",
                    "once somebody is opening the garage door",
-                   "when my gate is opeingn",
+                   "when my gate is opening",
                    "when the gates are opening",
                    "when the gate get opening",
                    "when I'm opening my gates",
@@ -531,7 +436,7 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "the moment the garage doors are closing",
                    "when anyone is closing the garage door",
                    "once somebody is closing the garage door",
-                   "when my gate is opeingn",
+                   "when my gate is closing",
                    "when the gates are closing",
                    "when the gate get closing",
                    "when I'm closing my gates",
@@ -758,207 +663,6 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "keep closing the windows"]]
     #[id=120011]
     #[name="SetOpencloseWithStateClose"];
-
-    program (p_name :String)  := @org.thingpedia.iot.cover(name=p_name).state()
-    #_[utterances=["are my ${p_name:const} curtains open?",
-                   "are my ${p_name:const} curtains closed?",
-                   "check if my ${p_name:const} curtains are raised",
-                   "are my ${p_name:const} curtains put down?",
-                   "did I raise the ${p_name:const} curtains?",
-                   "check whether the ${p_name:const} curtains are lowered",
-                   "is my ${p_name:const} awning open?",
-                   "are my ${p_name:const} awnings closed?",
-                   "check if my ${p_name:const} awning is extended",
-                   "are the ${p_name:const} awnings out?",
-                   "did I retract the ${p_name:const} awnings?",
-                   "check whether the ${p_name:const} awnings are retracted",
-                   "are my ${p_name:const} blinds open?",
-                   "are my ${p_name:const} blinds closed?",
-                   "check if my ${p_name:const} blinds are raised",
-                   "are my ${p_name:const} blinds put down?",
-                   "did I raise the ${p_name:const} blinds?",
-                   "check whether the ${p_name:const} blinds are lowered",
-                   "is my ${p_name:const} damper open?",
-                   "is the ${p_name:const} damper closed?",
-                   "is my ${p_name:const} damper open?",
-                   "is the ${p_name:const} damper closed?",
-                   "are my ${p_name:const} shades open?",
-                   "are my ${p_name:const} shades closed?",
-                   "check if my ${p_name:const} shades are raised",
-                   "are my ${p_name:const} shades put down?",
-                   "did I raise the ${p_name:const} shades?",
-                   "check whether the ${p_name:const} shades are lowered",
-                   "are my ${p_name:const} shutters open?",
-                   "are my ${p_name:const} shutters closed?",
-                   "check if my ${p_name:const} shutters are opened",
-                   "did I close the ${p_name:const} shutters?",
-                   "is my ${p_name:const} window open?",
-                   "is my ${p_name:const} window closed?",
-                   "check if my ${p_name:const} window is opened",
-                   "did I close the ${p_name:const} window?",
-                   "did anyone open the ${p_name:const} window?",
-                   "did somebody shut the ${p_name:const} window?"]]
-    #[id=54932569]
-    #[name="StateThenNotify2"];
-
-    query (p_name :String)  := @org.thingpedia.iot.cover(name=p_name).state()
-    #_[utterances=["if my ${p_name:const} curtains are open or closed",
-                   "whether my ${p_name:const} awnings are open or closed",
-                   "if I raised the ${p_name:const} curtains",
-                   "if I extended the ${p_name:const} awning",
-                   "whether the ${p_name:const} curtains is raised or lowered",
-                   "whether the ${p_name:const} awning is extended or retracted",
-                   "if my ${p_name:const} blinds are open or closed",
-                   "whether my ${p_name:const} blinds are open or closed",
-                   "if I raised the ${p_name:const} blinds",
-                   "whether the ${p_name:const} blinds is raised or lowered",
-                   "if the ${p_name:const} damper is open or closed",
-                   "whether my ${p_name:const} damper is open or closed",
-                   "if my ${p_name:const} shades are open or closed",
-                   "whether my ${p_name:const} shades are open or closed",
-                   "if I raised the ${p_name:const} shades",
-                   "whether the ${p_name:const} shades is raised or lowered",
-                   "if my ${p_name:const} shutters are open or closed",
-                   "whether my ${p_name:const} shutters are open or closed",
-                   "if I opened the ${p_name:const} shutters",
-                   "if my ${p_name:const} window is open or closed",
-                   "whether my ${p_name:const} window is open or closed",
-                   "if I opened the ${p_name:const} window",
-                   "whether the ${p_name:const} window is shut",
-                   "whether anyone closed the ${p_name:const} window"]]
-    #[id=54932607]
-    #[name="State1"];
-
-    stream (p_name :String)  := monitor (@org.thingpedia.iot.cover(name=p_name).state())
-    #_[utterances=["when the ${p_name:const} curtains are open or close",
-                   "once the ${p_name:const} curtains are open or close",
-                   "when my ${p_name:const} awnings are extended or retracted",
-                   "when the ${p_name:const} blinds are raised or lowered",
-                   "when the ${p_name:const} damper is opened or closed",
-                   "when the ${p_name:const} shades are raised or lowered",
-                   "when the ${p_name:const} shutters are opened or closed",
-                   "when the ${p_name:const} window is opened or closed"]]
-    #[id=54932631]
-    #[name="MonitorState1"];
-
-    stream (p_name :String, p_state :Enum(open,opening,closed,closing))  := monitor (@org.thingpedia.iot.cover(name=p_name).state()), state == p_state
-    #_[utterances=["when the ${p_name:const} curtains are ${p_state}",
-                   "when my ${p_name:const} curtains gets ${p_state}",
-                   "when the ${p_name:const} blinds are ${p_state}",
-                   "when my ${p_name:const} blinds gets ${p_state}",
-                   "when the ${p_name:const} damper is ${p_state}",
-                   "when my ${p_name:const} damper gets ${p_state}",
-                   "when the ${p_name:const} shades are ${p_state}",
-                   "when my ${p_name:const} shades gets ${p_state}",
-                   "when the ${p_name:const} shutters are ${p_state}",
-                   "when my ${p_name:const} shutters gets ${p_state}",
-                   "when the ${p_name:const} window is ${p_state}",
-                   "when my ${p_name:const} window gets ${p_state}"]]
-    #[id=54932638]
-    #[name="MonitorStateByState1"];
-
-    stream (p_name :String)  := monitor (@org.thingpedia.iot.cover(name=p_name).state()), state == enum(open)
-    #_[utterances=["when my ${p_name:const} curtains are raised",
-                   "when the ${p_name:const} curtains are put up",
-                   "once I bring up my ${p_name:const} curtains",
-                   "when my ${p_name:const} blinds are raised",
-                   "when the ${p_name:const} blinds are put up",
-                   "when I bring up my ${p_name:const} blinds",
-                   "when my ${p_name:const} damper is raised",
-                   "when the ${p_name:const} damper raises",
-                   "when my ${p_name:const} shades are raised",
-                   "when the ${p_name:const} shades are put up",
-                   "when I bring up my ${p_name:const} shades",
-                   "when my ${p_name:const} shutters are open",
-                   "when my ${p_name:const} window is open",
-                   "when anyone opens the ${p_name:const} window",
-                   "once somebody opens the ${p_name:const} window"]]
-    #[id=54932650]
-    #[name="MonitorStateByStateOpen1"];
-
-    stream (p_name :String)  := monitor (@org.thingpedia.iot.cover(name=p_name).state()), state == enum(closed)
-    #_[utterances=["when my ${p_name:const} curtains lower",
-                   "when the ${p_name:const} curtains get lowered",
-                   "the moment the ${p_name:const} curtains get put down",
-                   "when the ${p_name:const} curtains finish lowering",
-                   "when my ${p_name:const} blinds lower",
-                   "when the ${p_name:const} blinds get lowered",
-                   "the moment the ${p_name:const} blinds get put down",
-                   "when the ${p_name:const} blinds finish lowering",
-                   "when the ${p_name:const} damper is lowered",
-                   "when my ${p_name:const} damper lowers",
-                   "when my ${p_name:const} shades lower",
-                   "once the ${p_name:const} shades get lowered",
-                   "the moment the ${p_name:const} shades get put down",
-                   "when the ${p_name:const} shades finish lowering",
-                   "when my ${p_name:const} shutters close",
-                   "when my ${p_name:const} window closes",
-                   "when anyone shuts the ${p_name:const} window",
-                   "once somebody closes the ${p_name:const} window",
-                   "the moment the ${p_name:const} window gets shut"]]
-    #[id=54932665]
-    #[name="MonitorStateByStateClosed1"];
-
-    action (p_name :String, p_state :Enum(open,close))  := @org.thingpedia.iot.cover(name=p_name).set_openclose(state=p_state)
-    #_[utterances=["${p_state} my ${p_name:const} curtains",
-                   "${p_state} my ${p_name:const} awnings",
-                   "${p_state} the ${p_name:const} blinds",
-                   "${p_state} my ${p_name:const} damper",
-                   "${p_state} the ${p_name:const} shades",
-                   "${p_state} the ${p_name:const} shutters",
-                   "${p_state} my ${p_name:const} curtains",
-                   "${p_state} my ${p_name:const} awnings",
-                   "${p_state} the ${p_name:const} blinds",
-                   "${p_state} my ${p_name:const} damper",
-                   "${p_state} the ${p_name:const} shades",
-                   "${p_state} the ${p_name:const} shutters",
-                   "${p_state} my ${p_name:const} window",
-                   "${p_state} the ${p_name:const} window"]]
-    #[id=54932684]
-    #[name="SetOpencloseWithState2"];
-
-    action (p_name :String)  := @org.thingpedia.iot.cover(name=p_name).set_openclose(state=enum(open))
-    #_[utterances=["keep my ${p_name:const} curtains",
-                   "pull the ${p_name:const} curtains open",
-                   "open my ${p_name:const} curtains for me",
-                   "raise the ${p_name:const} curtains",
-                   "put the ${p_name:const} curtains up",
-                   "open my ${p_name:const} blinds for me",
-                   "raise the ${p_name:const} blinds",
-                   "put the ${p_name:const} blinds up",
-                   "open my ${p_name:const} damper for me",
-                   "raise the ${p_name:const} damper",
-                   "put the ${p_name:const} damper up",
-                   "open my ${p_name:const} shades for me",
-                   "raise the ${p_name:const} shades",
-                   "put the ${p_name:const} shades up",
-                   "open my ${p_name:const} shutters for me",
-                   "help me open the ${p_name:const} shutters",
-                   "open my ${p_name:const} window for me",
-                   "help me open the ${p_name:const} window"]]
-    #[id=54932698]
-    #[name="SetOpencloseWithStateOpen1"];
-
-    action (p_name :String)  := @org.thingpedia.iot.cover(name=p_name).set_openclose(state=enum(close))
-    #_[utterances=["pull the ${p_name:const} curtains close",
-                   "close my ${p_name:const} curtains",
-                   "lower the ${p_name:const} curtains",
-                   "put the ${p_name:const} curtains down",
-                   "close my ${p_name:const} blinds",
-                   "lower the ${p_name:const} blinds",
-                   "put the ${p_name:const} blinds down",
-                   "close my ${p_name:const} damper",
-                   "lower the ${p_name:const} damper",
-                   "put the ${p_name:const} damper down",
-                   "close my ${p_name:const} shades",
-                   "lower the ${p_name:const} shades",
-                   "put the ${p_name:const} shades down",
-                   "close my ${p_name:const} shutters",
-                   "bring in the ${p_name:const} shutters",
-                   "close my ${p_name:const} window",
-                   "shut the ${p_name:const} window"]]
-    #[id=54932716]
-    #[name="SetOpencloseWithStateClose1"];
 
     action := @org.thingpedia.iot.cover.set_openclosestop(state=enum(stop))
     #_[utterances=["stop closing the cover",
@@ -1513,7 +1217,7 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "the moment the ${p_name:const} garage doors are opening",
                    "when anyone is opening the ${p_name:const} garage door",
                    "once somebody is opening the ${p_name:const} garage door",
-                   "when my ${p_name:const} gate is opeingn",
+                   "when my ${p_name:const} gate is opening",
                    "when the ${p_name:const} gates are opening",
                    "when the ${p_name:const} gate get opening",
                    "when I'm opening my ${p_name:const} gates",
@@ -1689,7 +1393,7 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "the moment the ${p_name:const} garage doors are closing",
                    "when anyone is closing the ${p_name:const} garage door",
                    "once somebody is closing the ${p_name:const} garage door",
-                   "when my ${p_name:const} gate is opeingn",
+                   "when my ${p_name:const} gate is closing",
                    "when the ${p_name:const} gates are closing",
                    "when the ${p_name:const} gate get closing",
                    "when I'm closing my ${p_name:const} gates",
@@ -2104,7 +1808,6 @@ dataset @org.thingpedia.iot.cover language "en" {
                    "keep closing the ${p_name:const} tilt covers",
                    "make the ${p_name:const} tilt covers close",
                    "start closing the ${p_name:const} tilt cover",
-                   "start closing the ${p_name:const} tilt",
                    "close the ${p_name:const} tilt",
                    "keep closing the ${p_name:const} tilt",
                    "make the ${p_name:const} tilt close",

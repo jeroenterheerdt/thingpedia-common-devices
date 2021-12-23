@@ -9,7 +9,7 @@ abstract class @org.thingpedia.iot.battery
     monitorable query state(out state : Enum(low,normal), out value : Number)
     #_[canonical="battery state"]
     #_[confirmation="the state of $__device"]
-    #_[result=["the battery level is ${value} %", "it is ${state} level of charging"]]
+    #_[result=["the battery level is ${value} %", "the level of charge is ${state}"]]
     #[confirm=false]
     #[minimal_projection=["state", "value"]];
 
@@ -17,5 +17,5 @@ abstract class @org.thingpedia.iot.battery
     #_[canonical="battery charging"]
     #_[confirmation="the charging status of $__device"]
     #[confirm=false]
-    #_[result=["the battery state {of ${__device}|} is ${charge}"]];
+    #_[result=["the battery charging state {of ${__device}|} is ${charge}"]];
 }
