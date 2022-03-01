@@ -231,7 +231,7 @@ module.exports = class HomeAssistantSensor extends HomeAssistantDevice {
     }
     async get_state() {
         if (this.domain === 'sensor') {
-            let value = parseFloat(this.state.state);
+            let value = adjustUnit(parseFloat(this.state.state), this.state.attributes.unit_of_measurement);
             return [{ state: undefined, value: value }];
         } else if (this.domain === 'binary_sensor') {
             let state = this.deviceStateMapping[this.state.state];
