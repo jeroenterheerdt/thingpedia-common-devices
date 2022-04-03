@@ -5,18 +5,18 @@
     "data": {
         "areas": [
             {
-                "name": "Living Room",
-                "id": "living_room",
+                "name": "Soggiorno",
+                "id": "soggiorno",
                 "picture": null
             },
             {
-                "name": "Kitchen",
-                "id": "kitchen",
+                "name": "Cucina",
+                "id": "cucina",
                 "picture": null
             },
             {
-                "name": "Bedroom",
-                "id": "bedroom",
+                "name": "Camera da letto",
+                "id": "camera_da_letto",
                 "picture": null
             }
         ]

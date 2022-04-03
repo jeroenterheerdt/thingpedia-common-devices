@@ -5,7 +5,7 @@
     "data": {
         "users": [
             {
-                "id": "114a3a5426b3488786b2b9714d5b2674",
+                "id": "5a9d59934dbd4c1897402d323ec97103",
                 "group_ids": [
                     "system-read-only"
                 ],
@@ -16,7 +16,7 @@
                 "local_only": false
             },
             {
-                "id": "ceb19920c95247fb8706473e6b3ca243",
+                "id": "06728ada0cd64a5c930ad3ab2a22ca64",
                 "group_ids": [
                     "system-admin"
                 ],
@@ -43,63 +43,63 @@
         ],
         "credentials": [
             {
-                "id": "3833cd85f6a54e73bf185deab7f4530f",
-                "user_id": "ceb19920c95247fb8706473e6b3ca243",
+                "id": "2a5220094e22476b87c500eee6df79a4",
+                "user_id": "06728ada0cd64a5c930ad3ab2a22ca64",
                 "auth_provider_type": "homeassistant",
                 "auth_provider_id": null,
                 "data": {
-                    "username": "user"
+                    "username": "genie"
                 }
             }
         ],
         "refresh_tokens": [
             {
-                "id": "78facfa132d34eb587da0a4747923345",
-                "user_id": "114a3a5426b3488786b2b9714d5b2674",
+                "id": "1b34c979ff1a40e8a82d37ad9a5176da",
+                "user_id": "5a9d59934dbd4c1897402d323ec97103",
                 "client_id": null,
                 "client_name": null,
                 "client_icon": null,
                 "token_type": "system",
-                "created_at": "2022-02-10T17:38:05.986062+00:00",
+                "created_at": "2022-04-03T20:16:12.708522+00:00",
                 "access_token_expiration": 1800.0,
-                "token": "5cbbb638548983f05c20c5b1d47b6141c3d2ee23865e094043e60e19f2b97a63ac83a5829482942f62937686b3ba00ed56e44e1daf50ac24e33beb5daac30562",
-                "jwt_key": "2aac543e37d32cd03250480462b6eafc0bb455dbb26fdd14e93621547e945b2bef7bfc8e3ab67289e9da6a15db3881decb31fcf0b794a427276867bd3a7c625f",
+                "token": "e689c89240d1cf050c5fb79cce93885c526b9e78e08fc8a23aa50e9ba86d7f4276c4b74c5275918dff830b687d0c8fa788a82841dda457039a18b631b241e724",
+                "jwt_key": "84b1e1a0ee28cdf9d254f01da4ebb69cc829eda7d8c1233f315dbb30fc5619b80a18898ce22d6359818ea05b5d6760464fb48a97a937f3672a536d3bc035f857",
                 "last_used_at": null,
                 "last_used_ip": null,
                 "credential_id": null,
-                "version": "2022.2.5"
+                "version": "2022.3.7"
             },
             {
-                "id": "d8d3cdf6b4e04f81bff711cac82d76e2",
-                "user_id": "ceb19920c95247fb8706473e6b3ca243",
-                "client_id": "http://192.168.0.22:8123/",
+                "id": "42146925f43048169f12721a95351e1a",
+                "user_id": "06728ada0cd64a5c930ad3ab2a22ca64",
+                "client_id": null,
+                "client_name": "test token",
+                "client_icon": null,
+                "token_type": "long_lived_access_token",
+                "created_at": "2022-04-03T20:27:09.093534+00:00",
+                "access_token_expiration": 315360000.0,
+                "token": "4409722c8fcdfd765dc7bb236e11dbeb5697c226d9af321cffee00a699fa48909b28d2e36aa3db026b603ef99703356fbe7aba9a65a976c6d719226beb7af174",
+                "jwt_key": "28592910b815051a77a805a94fa39d283cef08397d98d5da833351c83f7a41a29878b466be2ab983433740ff7dd2240ffa43b7b37af9d8e08ca01dfe7a3de8dc",
+                "last_used_at": "2022-04-03T20:27:09.093645+00:00",
+                "last_used_ip": null,
+                "credential_id": null,
+                "version": "2022.3.7"
+            },
+            {
+                "id": "3a750d9b5d074af190423024a39e89c0",
+                "user_id": "06728ada0cd64a5c930ad3ab2a22ca64",
+                "client_id": "http://192.168.1.246:8123/",
                 "client_name": null,
                 "client_icon": null,
                 "token_type": "normal",
-                "created_at": "2022-02-10T17:39:19.330136+00:00",
+                "created_at": "2022-04-03T22:19:09.117843+00:00",
                 "access_token_expiration": 1800.0,
-                "token": "ec793600d67f143c5a1d1e288f02c3df5e99aaee925f2e55352c62d256df50f8896c981929bd4860a3c4e433f98b16679ff470d03f91e8ca2dba844791344d6c",
-                "jwt_key": "92b7ce972f424208f5861a10b956daed869349a3107426f6728f9e6ad5ae356cb95b4ea37cf52b85ce92e321b4886e8f96146fa8ff41b6d8406b05f77158c452",
-                "last_used_at": "2022-02-10T17:39:19.330234+00:00",
-                "last_used_ip": "192.168.0.19",
-                "credential_id": "3833cd85f6a54e73bf185deab7f4530f",
-                "version": "2022.2.5"
-            },
-            {
-                "id": "e685e84aac11414dba1171e8dc25c0cc",
-                "user_id": "ceb19920c95247fb8706473e6b3ca243",
-                "client_id": null,
-                "client_name": "test_token",
-                "client_icon": null,
-                "token_type": "long_lived_access_token",
-                "created_at": "2022-02-10T17:40:21.933922+00:00",
-                "access_token_expiration": 315360000.0,
-                "token": "dcac74f113ca7fdbdc5460679275a9db9dd90612017474d2b7da34fb573058a648ddd7a4d3473694bd3129e21bff7b100d3999ec632b389decb3861736371a91",
-                "jwt_key": "d4a5456d103ad02d5ebf3d250283e71d566941533bf1f86ae5b2f9c1663e8d56d50ed9bde8eb9df09d6adb3efa47b9db9f5425ebf2f4616706641f1c9a452da5",
-                "last_used_at": "2022-02-10T17:40:21.934056+00:00",
-                "last_used_ip": null,
-                "credential_id": null,
-                "version": "2022.2.5"
+                "token": "fc711b6839973243932fccfec552cc1d8a3daab8ba49b002eb0cc791f666ebf1aedca7fe40ff874d343453e3055bfeb1ff68bd59584dcaa8f3ea5d3b83c950cb",
+                "jwt_key": "3b86011be7149c6434f5a8b847c6c8babde8efb8c5094a3ebe0ed57e3a305fc2e2322f10c6d6a6fe933a6f05377bd48d7af87bc9687d135d9ee6c2300b7c6fa3",
+                "last_used_at": "2022-04-03T22:19:09.117968+00:00",
+                "last_used_ip": "192.168.1.220",
+                "credential_id": "2a5220094e22476b87c500eee6df79a4",
+                "version": "2022.3.7"
             }
         ]
     }

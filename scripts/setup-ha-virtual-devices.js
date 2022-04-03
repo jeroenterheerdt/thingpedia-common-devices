@@ -39,7 +39,7 @@ const BASE_URL = 'http://127.0.0.1:8123/api';
 
 // if this is updated, the config in test/data/homeassistant must be rebuilt
 // and the credentials in test/credentials/io.home-assistant.json updated as well
-const ACCESS_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJkMzQ1NDY2MmJjZmI0OWJlYjk0YTg5MzhmNzY3NWI3ZiIsImlhdCI6MTYxODU2NzE4MiwiZXhwIjoxOTMzOTI3MTgyfQ.tQ8E2YkUIPYf0NjvcNsR7r1A7jLRQXp0Np4jdxPdDaM';
+const ACCESS_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI0MjE0NjkyNWY0MzA0ODE2OWYxMjcyMWE5NTM1MWUxYSIsImlhdCI6MTY0OTAxNzYyOSwiZXhwIjoxOTY0Mzc3NjI5fQ.HFv7aDxry_Ti2pFRKynPYOQ0SGoWCru64UnbMGh_484';
 
 function randint(low, high, rng = Math.random) {
     return Math.round(low + (high - low) * rng());
